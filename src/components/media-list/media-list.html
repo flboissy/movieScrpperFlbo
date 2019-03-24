@@ -1,0 +1,14 @@
+<ion-grid>
+  <ion-row>
+    <ion-col col-6 col-md-4 col-lg-2 *ngFor='let media of medias'>
+      <ion-card class="movie-card" (click)="navigateToDetail(media)">
+        <div>
+          <img src="{{media.Poster}}" (error) = "img.src = errorImg" #img />
+          <div class="movie-title">
+            <h2>{{media.Title}}</h2>
+          </div>
+        </div>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

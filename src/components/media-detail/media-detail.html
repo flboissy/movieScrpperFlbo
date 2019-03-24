@@ -1,0 +1,147 @@
+<ion-grid *ngIf="media">
+  <ion-row>
+    <ion-col class="poster" col-md-6 col-lg-6>
+      <div>
+        <img src="{{media.Poster}}" />
+      </div>
+    </ion-col>
+    <ion-col>
+      <ion-row>
+        <ion-col class="badge-container" *ngFor="let genre of genres">
+          <ion-badge color="dark" class="badge-info text-container" item-start>
+              {{genre}}
+          </ion-badge>
+        </ion-col>
+      </ion-row>
+      <ion-row class="small-padding">
+        <ion-col>
+          <ion-item>
+            <ion-icon class="text-container" name='star'></ion-icon>
+            {{media.imdbRating}}/10
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item class="text-container">
+            <ion-icon name='calendar'></ion-icon>
+            {{media.Released | date: 'dd/MM/yyyy'}}
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="small-padding">
+        <ion-col>
+          <ion-item class="text-container">
+            <ion-icon name='md-people'></ion-icon>
+            {{media.imdbVotes}} votes
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item class="text-container">
+            <ion-icon name='md-eye-off'></ion-icon>
+            {{media.Rated}}
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="small-padding">
+        <ion-col>
+          <ion-item class="text-container">
+            <ion-icon name='ios-timer-outline'></ion-icon>
+            {{media.Runtime}}
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item class="text-container">
+            <ion-icon name='ios-link'></ion-icon>
+            <a href="{{media.Website}}" target="_blank">Website</a>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="buttons-container">
+        <ion-col>
+          <button class="detail-action-button" *ngIf="!added" ion-button icon-end (click)="addTofavoris()">
+            <ion-label>
+              Add to list
+            </ion-label>
+            <ion-icon name='add-circle'></ion-icon>
+          </button>
+          <button class="detail-action-button" *ngIf="added" ion-button icon-end color="danger" (click)="removeFromFavoris()">
+            <ion-label>
+              Remove
+            </ion-label>
+            <ion-icon name='trash'></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button class="detail-action-button" ion-button icon-end (click)="openYoutubeTrailer()">
+            <ion-label>
+              Watch Trailer
+            </ion-label>
+            <ion-icon name='md-videocam'></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button class="detail-action-button" ion-button icon-end (click)="downloadImg(media.poster)">
+            <ion-label>
+              Download poster
+            </ion-label>
+            <ion-icon name="download"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-row>
+        <ion-item-divider class="button-section" color="divider" (click)="isAwardsShown = !isAwardsShown">
+          <span class="section">Prizes and awards</span>
+          <ion-icon name="md-albums" class="dropdown-section"></ion-icon>
+        </ion-item-divider>
+        <div *ngIf="isAwardsShown">
+          <ion-item text-wrap text-justify>
+            {{media.Awards}}
+          </ion-item>
+        </div>
+      </ion-row>
+      <ion-row>
+        <ion-item-divider class="button-section" color="divider" (click)="isDescriptionShown = !isDescriptionShown">
+          <span class="section">Plot</span>
+          <ion-icon name="md-albums" class="dropdown-section"></ion-icon>
+        </ion-item-divider>
+        <div *ngIf="isDescriptionShown">
+          <ion-item text-wrap text-justify>
+            {{media.Plot}}
+          </ion-item>
+        </div>
+      </ion-row>
+      <ion-row>
+        <ion-item-divider class="button-section" color="divider" (click)="isDirectorShown = !isDirectorShown">
+          <span class="section">Producer</span>
+          <ion-icon name="md-albums" class="dropdown-section"></ion-icon>
+        </ion-item-divider>
+        <div *ngIf="isDirectorShown">
+          <ion-item text-wrap text-justify>
+            {{media.Director}}
+          </ion-item>
+        </div>
+      </ion-row>
+      <ion-row>
+        <ion-item-divider class="button-section" color="divider" (click)="isActorsShown = !isActorsShown">
+          <span class="section">Actors</span>
+          <ion-icon name="md-albums" class="dropdown-section"></ion-icon>
+        </ion-item-divider>
+        <div *ngIf="isActorsShown">
+          <ion-row>
+            <ion-col *ngFor="let actor of actors" col-12>
+              <ion-item class="actors" text-wrap text-justify>
+                {{actor}}
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-grid>

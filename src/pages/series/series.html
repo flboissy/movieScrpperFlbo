@@ -1,0 +1,16 @@
+<ion-header>
+  <media-search-bar pageName = 'Series'  [isMovies]='false' [medias] = 'series' [currentPage] = 'currentPage' [currentSearchString] = 'currentSearchString' (searchChanged) = 'onSearchChanged($event)'  (mediasChanged) = 'onMediasChanged($event)'>
+
+  </media-search-bar>
+</ion-header>
+
+<ion-content padding>
+<media-list *ngIf='series' [medias] = 'series'>
+
+</media-list>
+<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+</ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
+</ion-content>

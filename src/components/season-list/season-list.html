@@ -1,0 +1,11 @@
+<ion-slides class="season-list" slidesPerView="4">
+  <ion-slide class="season-slide" pager="true" *ngFor="let number of seasons; let i = index">
+ 
+      <ion-card (click)="navigateToSeason(i)" class="season-card">
+        <img class="season-poster" [src]='poster' (error)="img.src = errorImg" #img />
+        <div class="season-title">
+          <h2>Season {{number}}</h2>
+        </div>
+      </ion-card>
+  </ion-slide>
+</ion-slides>

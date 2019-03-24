@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <ion-title *ngIf="media">
+      {{media.Title}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+   <media-detail *ngIf='media' [media]='media' [added]='added' >
+
+  </media-detail>
+</ion-content>

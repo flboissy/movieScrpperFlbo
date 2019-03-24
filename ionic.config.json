@@ -1,0 +1,10 @@
+{
+  "name": "cineSeries_flbo",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "apiUrl": "http://www.omdbapi.com/?apikey=75522b56",
+  "posterUrl": "http://img.omdbapi.com/?apikey=75522b56"
+
+}

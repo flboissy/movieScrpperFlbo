@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <ion-title *ngIf="serie">
+      {{serie.Title}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+   <media-detail *ngIf='serie' [media]='serie' [added]='added' >
+  </media-detail>
+  <season-list *ngIf='serie' [mediaID]='serie.imdbID' [poster]='serie.Poster' [numberOfSeason]='serie.totalSeasons'>
+
+  </season-list>
+
+</ion-content>

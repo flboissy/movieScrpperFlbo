@@ -1,0 +1,35 @@
+season-list {
+
+    .season-list{
+        height: auto;
+    }
+    .season-card{
+        position: relative;
+        height: 90%;
+        width: 90%;
+    }
+    .season-slide{
+        padding: 0;
+    }
+    .season-poster{
+        height: 100%;
+        width: 100%;
+    }
+    
+    .season-title {
+        opacity: 0.8;
+        background-color: rgba(0, 0, 0, 0.80);
+        height: 20%;
+        width: 100%;
+        padding: 10%;
+        position: absolute;
+        text-align: center;
+        bottom: 0;
+        left: 0;
+    }
+    .season-title h2 {
+        color: white;
+        font-weight: bold;
+        font-size: 100%
+    }
+}
